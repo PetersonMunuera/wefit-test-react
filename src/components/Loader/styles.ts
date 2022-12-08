@@ -14,7 +14,7 @@ export default {
       height: calc(100vh - 74px);
     }
   `,
-  
+
   SpinnerIcon: styled(Image)`
     animation-name: spin;
     animation-duration: 1s;

@@ -1,7 +1,7 @@
-import { createContext, useContext, useState, useEffect } from "react"
+import { createContext, useContext, useState } from "react"
 import { CartContextProps, CartProviderProps, CartProductProps } from "./types"
+import { findProduct } from "~/services/product"
 import { toast } from "react-toastify"
-import { api } from "~/services/api"
 
 const CartContext = createContext<CartContextProps>({} as CartContextProps)
 
@@ -15,8 +15,10 @@ export function CartProvider({ children }: CartProviderProps) {
       if (product) {
         updateProductAmount(productId, product.amount + 1)
       } else {
-        const { data } = await api.get(`products/${productId}`)
-        
+        const data = await findProduct(productId)
+
+        if (!data) return
+
         const newCart = [...cart, { ...data, amount: 1 }]
         setCart(newCart)
 
@@ -28,7 +30,7 @@ export function CartProvider({ children }: CartProviderProps) {
   }
 
   function removeProduct(productId: number) {
-    
+
   }
 
   function updateProductAmount(productId: number, amount: number) {

@@ -16,7 +16,7 @@ export function ProductsList() {
 
   const cartItemsAmount = cart.reduce((sumAmount, product) => {
     sumAmount[product.id] = product.amount
-    
+
     return sumAmount
   }, {} as CartItemsAmount)
 
@@ -32,7 +32,7 @@ export function ProductsList() {
       {products.map(product =>
         <ProductCard
           key={product.id}
-          product={product} 
+          product={product}
           amount={cartItemsAmount[product.id] || 0}
           handleAddProduct={addProduct}
         />
