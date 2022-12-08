@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import Image from "next/image"
-import { devices } from "../../styles/theme"
+import { devices } from "~/styles/theme"
 
 export default {
   Container: styled.div`

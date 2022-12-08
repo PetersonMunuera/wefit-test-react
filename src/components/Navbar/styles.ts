@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { colors, devices } from "../../styles/theme"
+import { colors, devices } from "~/styles/theme"
 
 export default {
   Container: styled.nav`

@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { OrderLayout } from "../components/layouts/Order"
+import { OrderLayout } from "~/components/layouts/Order"
 
 export default function Order() {
   return (
