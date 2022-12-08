@@ -1,14 +1,26 @@
-import { ProductsListProps } from "./types"
+import { useState, useEffect } from 'react'
+import { ProductProps } from '~/types/Product'
+import { getProducts } from '~/services/product'
+import { Loader } from '~/components/Loader'
+import { ProductCard } from '~/components/ProductCard'
 
-export function ProductsList({ products }: ProductsListProps) {
+import S from './styles'
+
+export function ProductsList() {
+  const [products, setProducts] = useState<ProductProps[]>([])
+
+  useEffect(() => {
+    getProducts()
+      .then(response => response && setProducts(response))
+  }, [])
+
+  if (!products.length) return <Loader />
+
   return (
-    <ul>
+    <S.Container>
       {products.map(product =>
-        <li key={product.id}>
-          {product.title} - 
-          {product.price}
-        </li>
+        <ProductCard key={product.id} product={product} />
       )}
-    </ul>
+    </S.Container>
   )
 }

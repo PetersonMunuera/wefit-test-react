@@ -16,7 +16,12 @@ export function Navbar() {
             <span>Meu Carrinho</span>
             <span>0 itens</span>
           </div>
-          <Image src='/icons/cart.svg' width={32} height={32} alt='Carrinho' />
+          <Image
+            src='/icons/cart.svg'
+            width={32}
+            height={32}
+            alt='Carrinho'
+          />
         </S.CartButton>
       </Link>
     </S.Container>
