@@ -28,6 +28,10 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
+  [disabled] {
+    cursor: not-allowed;
+  }
+
   a {
     text-decoration: none;
     color: inherit;

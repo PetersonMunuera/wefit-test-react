@@ -11,7 +11,7 @@ export default {
     padding: 0 10px;
     height: 68px;
 
-    span {
+    strong {
       font-size: 20px;
     }
 

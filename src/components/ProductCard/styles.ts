@@ -20,8 +20,8 @@ export default {
     }
   `,
 
-  Button: styled.button`
-    background-color: ${colors.primary};
+  AddButton: styled.button`
+    background-color: ${props => props.disabled ? colors.success : colors.primary};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,11 +31,7 @@ export default {
     height: 40px;
     border-radius: 4px;
 
-    text-transform: uppercase;
-    font-size: 12px;
-    line-height: 16px;
     color: ${colors.light};
-    font-weight: 700;
     
     div {
       display: flex;
@@ -47,6 +43,15 @@ export default {
       img {
         margin-right: 5px;
       }
+    }
+
+    strong {
+      width: 157px;
+      color: ${colors.light};
+      text-transform: uppercase;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 700;
     }
   `
 }
