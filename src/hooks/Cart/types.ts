@@ -1,9 +1,5 @@
 import { ReactNode } from "react"
-import { ProductProps } from "~/types/Product"
-
-export interface CartProductProps extends ProductProps {
-  amount: number
-}
+import { CartProductProps } from "~/types/Product"
 
 export type CartContextProps = {
   cart: CartProductProps[],

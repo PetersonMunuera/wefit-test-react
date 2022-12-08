@@ -4,14 +4,14 @@ import { format } from '~/utils/currencyFormat'
 
 import S from './styles'
 
-export function ProductCard({ product, amount, handleAddProduct }: ProductCardProps) {
+export function ProductCard({ product, handleAddProduct }: ProductCardProps) {
   return (
     <S.Container>
       <img src={product.image} width={147} height={188} alt={product.title} />
       <h1>{product.title}</h1>
       <strong>{format(product.price)}</strong>
       <S.AddButton
-        disabled={!!amount}
+        disabled={!!product.amount}
         onClick={() => handleAddProduct(product.id)}
       >
         <div>
@@ -21,10 +21,10 @@ export function ProductCard({ product, amount, handleAddProduct }: ProductCardPr
             height={14}
             alt='Adicionar'
           />
-          {amount}
+          {product.amount}
         </div>
         <strong>
-          {!amount ? 'adicionar ao carrinho' : 'item adicionado'}
+          {!product.amount ? 'adicionar ao carrinho' : 'item adicionado'}
         </strong>
       </S.AddButton>
     </S.Container>

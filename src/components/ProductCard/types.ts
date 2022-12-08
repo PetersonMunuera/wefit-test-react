@@ -1,7 +1,6 @@
-import { ProductProps } from "~/types/Product"
+import { CartProductProps } from "~/types/Product"
 
 export type ProductCardProps = {
-  product: ProductProps,
-  amount: number,
+  product: CartProductProps,
   handleAddProduct: (productId: number) => void
 }

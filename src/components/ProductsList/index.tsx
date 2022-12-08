@@ -21,8 +21,9 @@ export function ProductsList() {
   }, {} as CartItemsAmount)
 
   useEffect(() => {
-    getProducts()
-      .then(response => response && setProducts(response))
+    getProducts().then(response => 
+      response && setProducts(response)
+    )
   }, [])
 
   if (!products.length) return <Loader />
@@ -32,8 +33,10 @@ export function ProductsList() {
       {products.map(product =>
         <ProductCard
           key={product.id}
-          product={product}
-          amount={cartItemsAmount[product.id] || 0}
+          product={{
+            ...product,
+            amount: cartItemsAmount[product.id] || 0
+          }}
           handleAddProduct={addProduct}
         />
       )}
