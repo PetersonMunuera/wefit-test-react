@@ -1,5 +1,5 @@
-import { Loader } from '../components/Loader'
+import { HomeLayout } from "../components/layouts/Home"
 
 export default function Home() {
-  return <Loader />
+  return <HomeLayout />
 }

@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default function Order() {
+export function OrderLayout() {
   return (
     <>
       <h1>Order Complete</h1>

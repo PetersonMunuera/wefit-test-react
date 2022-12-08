@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default function Cart() {
+export function CartLayout() {
   return (
     <>
       <h1>Cart</h1>
