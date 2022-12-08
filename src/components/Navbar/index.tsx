@@ -1,18 +1,24 @@
 import Link from "next/link"
-import { Container } from "./style"
+import Image from "next/image"
+
+import S from "./styles"
 
 export function Navbar() {
   return (
-    <Container>
+    <S.Container>
       <Link href='/'>
         <span>WeMovies</span>
       </Link>
 
       <Link href='/cart'>
-        <button>
-          0 itens
-        </button>
+        <S.CartButton>
+          <div>
+            <span>Meu Carrinho</span>
+            <span>0 itens</span>
+          </div>
+          <Image src='/icons/cart.svg' width={32} height={32} alt='Carrinho' />
+        </S.CartButton>
       </Link>
-    </Container>
+    </S.Container>
   )
 }

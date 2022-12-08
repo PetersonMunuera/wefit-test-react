@@ -1,17 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
+import { colors } from './theme'
 
 export const GlobalStyle = createGlobalStyle`
-  
-  :root {
-    --light: #fff;
-    --background: #2F2E41;
-    --text: #2F2E41;
-    --text-title: #333;
-    --text-light: #999;
-    --primary: #009EDD;
-    --success: #039B00;
-  }
-
   * {
     margin: 0;
     padding: 0;
@@ -19,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background-color: var(--background);
+    background-color: ${colors.background};
   }
 
   body, input, textarea, button {
