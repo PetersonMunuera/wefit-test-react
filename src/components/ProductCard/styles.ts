@@ -21,7 +21,11 @@ export default {
   `,
 
   AddButton: styled.button`
-    background-color: ${props => props.disabled ? colors.success : colors.primary};
+    background-color: ${props =>
+      props.disabled
+        ? colors.success
+        : colors.primary
+    };
     display: flex;
     justify-content: center;
     align-items: center;

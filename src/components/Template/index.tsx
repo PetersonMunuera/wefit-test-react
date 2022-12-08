@@ -1,9 +1,11 @@
-import { TemplateProps } from "./types"
 import { CartProvider } from '~/hooks/Cart/useCart'
+
+import { TemplateProps } from "./types"
+
 import { ToastContainer } from "react-toastify"
 import { Navbar } from "../Navbar"
-import { GlobalStyle } from '~/styles/globals'
 
+import { GlobalStyle } from '~/styles/globals'
 import S from "./styles"
 
 export function Template({ children }: TemplateProps) {

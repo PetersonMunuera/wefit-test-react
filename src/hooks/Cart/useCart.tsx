@@ -1,7 +1,9 @@
 import { createContext, useContext, useState } from "react"
-import { CartContextProps, CartProviderProps, CartProductProps } from "./types"
 import { findProduct } from "~/services/product"
 import { toast } from "react-toastify"
+
+import { CartContextProps, CartProviderProps } from "./types"
+import { CartProductProps } from "~/types/Product"
 
 const CartContext = createContext<CartContextProps>({} as CartContextProps)
 
@@ -10,20 +12,14 @@ export function CartProvider({ children }: CartProviderProps) {
 
   async function addProduct(productId: number) {
     try {
-      let product = cart.find(product => product.id === productId)
+      const data = await findProduct(productId)
 
-      if (product) {
-        updateProductAmount(productId, product.amount + 1)
-      } else {
-        const data = await findProduct(productId)
+      if (!data) return
 
-        if (!data) return
+      const newCart = [...cart, { ...data, amount: 1 }]
+      setCart(newCart)
 
-        const newCart = [...cart, { ...data, amount: 1 }]
-        setCart(newCart)
-
-        toast.success('Produto adicionado ao carrinho')
-      }
+      toast.success('Produto adicionado ao carrinho')
     } catch (error) {
       toast.error('Erro ao adicionar produto no carrinho')
     }

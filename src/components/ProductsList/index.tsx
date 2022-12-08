@@ -26,9 +26,9 @@ export function ProductsList() {
     )
   }, [])
 
-  if (!products.length) return <Loader />
-
-  return (
+  return !products.length ? (
+    <Loader /> 
+  ) : (
     <S.Container>
       {products.map(product =>
         <ProductCard

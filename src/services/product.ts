@@ -1,6 +1,5 @@
-import { toast } from 'react-toastify';
-
 import { api } from "./api"
+import { toast } from 'react-toastify';
 import { ProductProps } from '~/types/Product'
 
 export async function getProducts() {
@@ -19,6 +18,6 @@ export async function findProduct(productId: number) {
 
     return product
   } catch (error) {
-    toast.error('Erro ao buscar produtos')
+    toast.error('Erro ao buscar produto')
   }
 }

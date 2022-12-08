@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { ProductCardProps } from './types'
 import { format } from '~/utils/currencyFormat'
+import { ProductCardProps } from './types'
 
 import S from './styles'
 

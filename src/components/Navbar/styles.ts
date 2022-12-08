@@ -17,6 +17,7 @@ export default {
 
     @media ${devices.desktop} {
       height: 74px;
+      margin-bottom: 24px;
     }
   `,
 
