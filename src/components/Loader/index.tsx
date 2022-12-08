@@ -1,4 +1,3 @@
-// import Image from "next/image";
 import S from './styles'
 
 export function Loader() {
