@@ -18,6 +18,10 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   
+  body {
+    background-color: var(--background);
+  }
+
   body, input, textarea, button {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -31,5 +35,10 @@ export const GlobalStyle = createGlobalStyle`
   button {
     border: none;
     cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 `
