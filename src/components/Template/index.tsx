@@ -1,5 +1,5 @@
 import { TemplateProps } from "./types"
-import { CartProvider } from '~/hooks/useCart'
+import { CartProvider } from '~/hooks/Cart/useCart'
 import { ToastContainer } from "react-toastify"
 import { Navbar } from "../Navbar"
 import { GlobalStyle } from '~/styles/globals'
