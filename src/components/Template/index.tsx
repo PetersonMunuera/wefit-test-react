@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify"
 import { Navbar } from "../Navbar"
 import { TemplateProps } from "./types"
 
@@ -8,6 +9,7 @@ export function Template({ children }: TemplateProps) {
     <S.Container>
       <Navbar />
       <main>{children}</main>
+      <ToastContainer autoClose={3000} theme={'dark'} />
     </S.Container>
   )
 }
