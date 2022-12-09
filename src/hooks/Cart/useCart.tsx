@@ -11,11 +11,8 @@ export function CartProvider({ children }: CartProviderProps) {
   const [cart, setCart] = useState<CartProductProps[]>([])
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const storagedCart = localStorage.getItem('@WeMovies:cart')
-      
-      if (storagedCart) setCart(JSON.parse(storagedCart))
-    }
+    const storagedCart = localStorage.getItem('@WeMovies:cart')
+    if (storagedCart) setCart(JSON.parse(storagedCart))
   }, [])
 
   async function addProduct(productId: number) {
