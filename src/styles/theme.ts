@@ -10,8 +10,14 @@ export const colors = {
   success: '#039B00',
 }
 
+export const sizes = {
+  mobile: 375,
+  tablet: 768,
+  desktop: 1024,
+}
+
 export const devices = {
-  mobile: '(min-width: 375px)',
-  tablet: '(min-width: 768px)',
-  desktop: '(min-width: 1024px)',
+  mobile: `(min-width: ${sizes.mobile}px)`,
+  tablet: `(min-width: ${sizes.tablet}px)`,
+  desktop: `(min-width: ${sizes.desktop}px)`,
 }

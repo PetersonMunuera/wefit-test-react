@@ -6,9 +6,13 @@ export default {
     display: grid;
     gap: 16px;
 
+    @media ${devices.tablet} {
+      grid-template-columns: 1fr 1fr;
+      padding: 0;
+    }
+
     @media ${devices.desktop} {
       grid-template-columns: 1fr 1fr 1fr;
-      padding: 0;
     }
   `
 }

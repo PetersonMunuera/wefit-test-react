@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { useCart } from '~/hooks/useCart'
 import { format } from '~/utils/currencyFormat'
 
@@ -6,7 +7,6 @@ import { FeedbackCard } from '~/components/FeedbackCard'
 import { CartItems } from '~/components/CartItems'
 
 import S from './style'
-import { useRouter } from 'next/router'
 
 export default function Cart() {
   const { cart, resetCart } = useCart()

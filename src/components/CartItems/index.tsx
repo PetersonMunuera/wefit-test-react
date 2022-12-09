@@ -1,11 +1,20 @@
 import Image from "next/image"
+import { useEffect, useState } from "react"
 import { useCart } from "~/hooks/useCart"
 import { format } from '~/utils/currencyFormat'
+import { sizes } from "~/styles/theme"
 
 import S from './style'
 
 export function CartItems() {
+  const [screenWidth, setScreenWidth] = useState(() => screen.width)
   const { cart, updateProductAmount, removeProduct } = useCart()
+
+  useEffect(() => {
+    window.addEventListener('resize', () =>
+      setScreenWidth(screen.width)
+    )
+  }, [])
 
   return (
     <S.List>
@@ -13,8 +22,8 @@ export function CartItems() {
         <li key={product.id}>
           <Image
             src={product.image}
-            width={64}
-            height={82}
+            width={screenWidth >= sizes.tablet ? 90 : 64}
+            height={screenWidth >= sizes.tablet ? 114 : 82}
             alt={product.title}
             priority
           />
