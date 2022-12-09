@@ -25,11 +25,6 @@ export default {
 
       &>img {
         margin-right: 16px;
-        
-        /* @media ${devices.tablet} {
-          width: 90px;
-          height: 114px;
-        } */
       }
 
       &+li {
