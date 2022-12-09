@@ -1,5 +1,4 @@
-import { CartProvider } from '~/hooks/Cart/useCart'
-
+import { CartProvider } from '~/hooks/useCart'
 import { TemplateProps } from "./types"
 
 import { ToastContainer } from "react-toastify"
@@ -13,7 +12,10 @@ export function Template({ children }: TemplateProps) {
     <CartProvider>
       <S.Container>
         <GlobalStyle />
-        <ToastContainer autoClose={2000} position={'bottom-center'} />
+        <ToastContainer
+          autoClose={2000}
+          position={'bottom-center'}
+        />
         <Navbar />
         <main>{children}</main>
       </S.Container>

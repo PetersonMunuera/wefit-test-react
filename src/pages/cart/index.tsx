@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useCart } from '~/hooks/Cart/useCart'
+import { useCart } from '~/hooks/useCart'
 import { format } from '~/utils/currencyFormat'
 
 import { FeedbackCard } from '~/components/FeedbackCard'
@@ -16,8 +16,8 @@ export default function Cart() {
   cart.forEach(product => totalPrice += product.price * product.amount)
 
   function handleFinishOrder() {
-    router.replace('/order')
     resetCart()
+    router.replace('/order')
   }
 
   return (

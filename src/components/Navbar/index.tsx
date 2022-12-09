@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { useCart } from "~/hooks/Cart/useCart"
+import { useCart } from "~/hooks/useCart"
 
 import S from "./styles"
 

@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { useCart } from "~/hooks/Cart/useCart"
+import { useCart } from "~/hooks/useCart"
 import { format } from '~/utils/currencyFormat'
 
 import S from './style'

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useCart } from '~/hooks/Cart/useCart'
+import { useCart } from '~/hooks/useCart'
 import { getProducts } from '~/services/product'
 
 import { ProductProps } from '~/types/Product'
