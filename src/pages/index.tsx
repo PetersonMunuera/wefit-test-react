@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
 import Head from 'next/head'
+import { useState, useEffect } from 'react'
 import { useCart } from '~/hooks/useCart'
 import { getProducts } from '~/services/product'
 

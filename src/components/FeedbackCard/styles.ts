@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import CardStyle from '~/components/Card/styles'
+import ButtonStyle from '~/components/Button/styles'
 import { colors, devices } from "~/styles/theme"
 
 export default {
@@ -18,18 +19,9 @@ export default {
         max-width: 100%;
       }
     }
-
-    button {
-      background-color: ${colors.primary};
-      margin-top: 32px;
-      width: 180px;
-      height: 40px;
-      border-radius: 4px;
-
-      color: ${colors.light};
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 40px;
-    }
+  `,
+  BackButton: styled(ButtonStyle.Button)`
+    width: 180px;
+    margin-top: 32px;
   `
 }

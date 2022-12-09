@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { colors } from "~/styles/theme"
 
+import ButtonStyle from '../Button/styles'
 import CardStyle from "../Card/styles"
 
 export default {
@@ -20,22 +21,17 @@ export default {
     }
   `,
 
-  AddButton: styled.button`
-    background-color: ${props =>
-      props.disabled
-        ? colors.success
-        : colors.primary
-    };
+  AddButton: styled(ButtonStyle.Button)`
     display: flex;
     justify-content: center;
     align-items: center;
     
     margin-top: 8px;
     width: 100%;
-    height: 40px;
-    border-radius: 4px;
-
-    color: ${colors.light};
+    
+    &:disabled {
+      background-color: ${colors.success};
+    }
     
     div {
       display: flex;

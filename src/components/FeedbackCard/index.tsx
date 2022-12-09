@@ -9,7 +9,9 @@ export function FeedbackCard({ img, text }: FeedbackCardProps) {
       <h1>{text}</h1>
       <Image {...img} priority />
       <Link href='/'>
-        <button>Voltar</button>
+        <S.BackButton>
+          Voltar
+        </S.BackButton>
       </Link>
     </S.Container>
   )

@@ -1,6 +1,8 @@
 import styled from "styled-components"
-import CartStyle from '~/components/Card/styles'
 import { colors, devices } from '~/styles/theme'
+
+import ButtonStyle from '~/components/Button/styles'
+import CartStyle from '~/components/Card/styles'
 
 export default {
   CartCard: styled(CartStyle.Container)`
@@ -75,22 +77,14 @@ export default {
         font-size: 24px;
       }
     }
+  `,
+  FinishButton: styled(ButtonStyle.Button)`
+    width: 100%;
+    margin-top: 16px;
 
-    button {
-      width: 100%;
-      margin-top: 16px;
-      background-color: ${colors.primary};
-      height: 40px;
-      border-radius: 4px;
-      color: ${colors.light};
-      text-transform: uppercase;
-      font-weight: 700;
-      font-size: 14px;
-
-      @media ${devices.tablet} {
-        max-width: 235px;
-        margin: 0;
-      }
+    @media ${devices.tablet} {
+      max-width: 235px;
+      margin: 0;
     }
   `
 }

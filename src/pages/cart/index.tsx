@@ -54,9 +54,9 @@ export default function Cart() {
               <span>total</span>
               <strong>{format(totalPrice)}</strong>
             </div>
-            <button onClick={handleFinishOrder}>
+            <S.FinishButton onClick={handleFinishOrder}>
               finalizar pedido
-            </button>
+            </S.FinishButton>
           </S.FinishOrder>
         </S.CartCard>
       )}
