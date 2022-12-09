@@ -24,12 +24,13 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   button {
+    background-color: transparent;
     border: none;
     cursor: pointer;
   }
 
   [disabled] {
-    cursor: not-allowed;
+    cursor: initial;
   }
 
   a {

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import { findProduct } from "~/services/product"
 import { toast } from "react-toastify"
 
@@ -10,15 +10,26 @@ const CartContext = createContext<CartContextProps>({} as CartContextProps)
 export function CartProvider({ children }: CartProviderProps) {
   const [cart, setCart] = useState<CartProductProps[]>([])
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storagedCart = localStorage.getItem('@WeMovies:cart')
+      
+      if (storagedCart) setCart(JSON.parse(storagedCart))
+    }
+  }, [])
+
   async function addProduct(productId: number) {
     try {
-      const data = await findProduct(productId)
+      const product = await findProduct(productId)
 
-      if (!data) throw new Error()
+      if (!product) throw new Error()
 
-      const newCart = [...cart, { ...data, amount: 1 }]
+      const newCart = [...cart, { ...product, amount: 1 }]
+
       setCart(newCart)
+      localStorage.setItem('@WeMovies:cart', JSON.stringify(newCart))
 
+      toast.dismiss()
       toast.success('Produto adicionado ao carrinho')
     } catch (error) {
       toast.error('Erro ao adicionar produto no carrinho')
@@ -30,14 +41,14 @@ export function CartProvider({ children }: CartProviderProps) {
       const product = cart.find(product => product.id === productId)
 
       if (!product) throw new Error()
-      
+
       const newCart = [...cart]
       const indexToRemove = cart.findIndex(product => product.id === productId)
 
       newCart.splice(indexToRemove, 1)
-      setCart(newCart)
 
-      toast.success('Produto removido do carrinho')
+      setCart(newCart)
+      localStorage.setItem('@WeMovies:cart', JSON.stringify(newCart))
     } catch (error) {
       toast.error('Erro ao remover produto do carrinho')
     }
@@ -58,6 +69,7 @@ export function CartProvider({ children }: CartProviderProps) {
       })
 
       setCart(newCart)
+      localStorage.setItem('@WeMovies:cart', JSON.stringify(newCart))
     }
   }
 

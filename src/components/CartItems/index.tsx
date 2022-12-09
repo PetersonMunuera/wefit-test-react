@@ -8,52 +8,54 @@ export function CartItems() {
   const { cart, updateProductAmount, removeProduct } = useCart()
 
   return (
-    <S.Table>
-      <tr>
-        <th>produto</th>
-        <th>qtd</th>
-        <th>subtotal</th>
-      </tr>
+    <S.List>
       {cart.map(product => (
-        <tr key={product.id}>
-          <td>
-            <Image
-              src={product.image}
-              width={90}
-              height={114}
-              alt={product.title}
-            />
+        <li key={product.id}>
+          <Image
+            src={product.image}
+            width={64}
+            height={82}
+            alt={product.title}
+          />
 
-            <div>
+          <div>
+            <S.Info>
               <h1>{product.title}</h1>
-              <span>R$ 29,90</span>
-            </div>
-          </td>
+              <div>
+                <strong>{format(product.price)}</strong>
 
-          <td>
-            <button onClick={() => updateProductAmount(product.id, product.amount - 1)}>-</button>
-            {product.amount}
-            <button onClick={() => updateProductAmount(product.id, product.amount + 1)}>+</button>
-          </td>
+                <button onClick={() => removeProduct(product.id)}>
+                  <Image
+                    src='/icons/trash.svg'
+                    width={18}
+                    height={18}
+                    alt='Remover produto'
+                  />
+                </button>
+              </div>
+            </S.Info>
 
-          <td>
-            <span>
-              {format(product.price * product.amount)}
-            </span>
-          </td>
+            <S.Price>
+              <S.AmountHandler>
+                <button onClick={() => updateProductAmount(product.id, product.amount - 1)}>
+                  <Image src='/icons/minus.svg' width={18} height={18} alt='Remover produto' />
+                </button>
+                <span>{product.amount}</span>
+                <button onClick={() => updateProductAmount(product.id, product.amount + 1)}>
+                  <Image src='/icons/plus.svg' width={18} height={18} alt='Adicionar produto' />
+                </button>
+              </S.AmountHandler>
 
-          <td>
-            <button onClick={() => removeProduct(product.id)}>
-              <Image
-                src='/icons/trash.svg'
-                width={18}
-                height={18}
-                alt='Remover produto'
-              />
-            </button>
-          </td>
-        </tr>
+              <S.Subtotal>
+                <h2>subtotal</h2>
+                <strong>
+                  {format(product.price * product.amount)}
+                </strong>
+              </S.Subtotal>
+            </S.Price>
+          </div>
+        </li>
       ))}
-    </S.Table>
+    </S.List>
   )
 }

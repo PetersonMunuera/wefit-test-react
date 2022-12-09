@@ -4,6 +4,7 @@ export const colors = {
   text: '#2F2E41',
   textTitle: '#333',
   textLight: '#999',
+  borderLight: '#D9D9D9',
   primary: '#009EDD',
   success: '#039B00',
 }

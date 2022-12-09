@@ -8,10 +8,10 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 68px);
+    height: calc(100vh - 84px);
 
     @media ${devices.desktop} {
-      height: calc(100vh - 74px);
+      height: calc(100vh - 114px);
     }
   `,
 

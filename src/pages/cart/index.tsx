@@ -1,12 +1,18 @@
 import Head from 'next/head'
 import { useCart } from '~/hooks/Cart/useCart'
+import { format } from '~/utils/currencyFormat'
 
 import { FeedbackCard } from '~/components/FeedbackCard'
-import { Card } from '~/components/Card'
 import { CartItems } from '~/components/CartItems'
+
+import S from './style'
+import Link from 'next/link'
 
 export default function Cart() {
   const { cart } = useCart()
+
+  let totalPrice = 0
+  cart.forEach(product => totalPrice += product.price * product.amount)
 
   return (
     <>
@@ -24,9 +30,18 @@ export default function Cart() {
             alt: 'Carrinho vazio'
           }} />
       ) : (
-        <Card>
+        <S.CartCard>
           <CartItems />
-        </Card>
+          <S.FinishOrder>
+            <div>
+              <span>total</span>
+              <strong>{format(totalPrice)}</strong>
+            </div>
+            <Link href='/order'>
+              <button>finalizar pedido</button>
+            </Link>
+          </S.FinishOrder>
+        </S.CartCard>
       )}
     </>
   )
