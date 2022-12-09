@@ -14,7 +14,7 @@ export function CartProvider({ children }: CartProviderProps) {
     try {
       const data = await findProduct(productId)
 
-      if (!data) return
+      if (!data) throw new Error()
 
       const newCart = [...cart, { ...data, amount: 1 }]
       setCart(newCart)
@@ -26,7 +26,21 @@ export function CartProvider({ children }: CartProviderProps) {
   }
 
   function removeProduct(productId: number) {
+    try {
+      const product = cart.find(product => product.id === productId)
 
+      if (!product) throw new Error()
+      
+      const newCart = [...cart]
+      const indexToRemove = cart.findIndex(product => product.id === productId)
+
+      newCart.splice(indexToRemove, 1)
+      setCart(newCart)
+
+      toast.success('Produto removido do carrinho')
+    } catch (error) {
+      toast.error('Erro ao remover produto do carrinho')
+    }
   }
 
   function updateProductAmount(productId: number, amount: number) {
@@ -48,9 +62,12 @@ export function CartProvider({ children }: CartProviderProps) {
   }
 
   return (
-    <CartContext.Provider
-      value={{ cart, addProduct, removeProduct, updateProductAmount }}
-    >
+    <CartContext.Provider value={{
+      cart,
+      addProduct,
+      removeProduct,
+      updateProductAmount
+    }}>
       {children}
     </CartContext.Provider>
   )

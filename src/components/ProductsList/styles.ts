@@ -6,8 +6,6 @@ export default {
     display: grid;
     gap: 16px;
 
-    list-style: none;
-
     @media ${devices.desktop} {
       grid-template-columns: 1fr 1fr 1fr;
       padding: 0;

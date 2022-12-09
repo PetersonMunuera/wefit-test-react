@@ -30,13 +30,6 @@ export default {
       font-weight: 700;
       font-size: 14px;
       line-height: 40px;
-
-      &::before {
-        content: '';
-        width: 100%;
-        height: 1.5px;
-        background-color: ${colors.background};
-      }
     }
   `
 }

@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { OrderLayout } from "~/components/layouts/Order"
+import { FeedbackCard } from "~/components/FeedbackCard"
 
 export default function Order() {
   return (
@@ -7,7 +7,15 @@ export default function Order() {
       <Head>
         <title>Compra concluída</title>
       </Head>
-      <OrderLayout />
+      <FeedbackCard
+        text="Compra realizada com sucesso!"
+        img={{
+          src: '/images/order-complete.svg',
+          width: 295,
+          height: 307,
+          alt: 'Compra concluída'
+        }}
+      />
     </>
   )
 }

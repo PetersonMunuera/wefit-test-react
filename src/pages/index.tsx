@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { HomeLayout } from "~/components/layouts/Home"
+import { ProductsList } from '~/components/ProductsList'
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       <Head>
         <title>Início</title>
       </Head>
-      <HomeLayout />
+      <ProductsList />
     </>
   )
 }
