@@ -53,6 +53,15 @@ export function CartItems() {
                   {format(product.price * product.amount)}
                 </strong>
               </S.Subtotal>
+
+              <button onClick={() => removeProduct(product.id)}>
+                <Image
+                  src='/icons/trash.svg'
+                  width={18}
+                  height={18}
+                  alt='Remover produto'
+                />
+              </button>
             </S.Price>
           </div>
         </li>

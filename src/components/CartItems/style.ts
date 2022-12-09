@@ -1,12 +1,12 @@
 import styled from "styled-components"
-import { colors } from "~/styles/theme"
+import { colors, devices } from "~/styles/theme"
 
 export default {
   List: styled.ul`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
     color: ${colors.text};
 
     li {
@@ -16,20 +16,25 @@ export default {
         width: 100%;
         display: flex;
         flex-direction: column;
+
+        @media ${devices.tablet} {
+          flex-direction: row;
+          justify-content: space-between;
+        }
       }
 
       &>img {
         margin-right: 16px;
+        
+        @media ${devices.tablet} {
+          width: 90px;
+          height: 114px;
+        }
       }
 
       &+li {
-        padding-top: 24px;
+        padding-top: 20px;
         border-top: 1px solid ${colors.borderLight};
-      }
-
-      button {
-        display: flex;
-        background-color: transparent;
       }
     }
   `,
@@ -39,8 +44,21 @@ export default {
     align-items: center;
     font-weight: 700;
 
+    @media ${devices.tablet} {
+      flex-direction: column;
+      justify-content: center;
+
+      h1 {
+        margin-bottom: 8px;
+      }
+    }
+
     h1 {
       font-size: 14px;
+
+      @media ${devices.tablet} {
+        margin-bottom: 8px;
+      }
     }
 
     &>div {
@@ -49,7 +67,12 @@ export default {
     }
 
     button {
+      display: flex;
       margin-left: 16px;
+
+      @media ${devices.tablet} {
+        display: none;
+      }
     }
   `,
   Price: styled.div`
@@ -57,6 +80,19 @@ export default {
     align-items: center;
     justify-content: space-between;
     height: 100%;
+
+    @media ${devices.tablet} {
+      width: calc(50% + 50px);
+    }
+
+    button {
+      display: none;
+
+      @media ${devices.tablet} {
+        display: flex;
+      }
+    }
+
   `,
   AmountHandler: styled.div`
     display: flex;
@@ -70,6 +106,10 @@ export default {
       border-radius: 4px;
       font-size: 14px;
     }
+
+    button {
+      display: flex;
+    }
   `,
   Subtotal: styled.div`
     display: flex;
@@ -80,6 +120,10 @@ export default {
       font-size: 12px;
       color: ${colors.textLight};
       text-transform: uppercase;
+
+      @media ${devices.tablet} {
+        display: none;
+      }
     }
   `
 }

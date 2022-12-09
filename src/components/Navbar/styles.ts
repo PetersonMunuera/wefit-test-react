@@ -37,7 +37,7 @@ export default {
         font-size: 14px;
         line-height: 19px;
 
-        @media ${devices.desktop} {
+        @media ${devices.tablet} {
           display: block;
         }
       }

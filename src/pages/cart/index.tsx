@@ -13,7 +13,10 @@ export default function Cart() {
   const router = useRouter()
 
   let totalPrice = 0
-  cart.forEach(product => totalPrice += product.price * product.amount)
+
+  cart.forEach(product =>
+    totalPrice += product.price * product.amount
+  )
 
   function handleFinishOrder() {
     resetCart()
@@ -37,14 +40,23 @@ export default function Cart() {
           }} />
       ) : (
         <S.CartCard>
+          <S.CartHeader>
+            <span>produto</span>
+            <div>
+              <span>qtd</span>
+              <span>subtotal</span>
+              <span></span>
+            </div>
+          </S.CartHeader>
           <CartItems />
           <S.FinishOrder>
             <div>
               <span>total</span>
               <strong>{format(totalPrice)}</strong>
             </div>
-            <button onClick={handleFinishOrder}>finalizar pedido</button>
-
+            <button onClick={handleFinishOrder}>
+              finalizar pedido
+            </button>
           </S.FinishOrder>
         </S.CartCard>
       )}

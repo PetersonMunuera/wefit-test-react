@@ -6,18 +6,58 @@ export default {
   CartCard: styled(CartStyle.Container)`
     padding: 16px;
     min-height: calc(100vh - 84px);
-    justify-content: space-between;
 
     @media ${devices.desktop} {
       min-height: auto;
+      padding: 24px;
+    }
+  `,
+  CartHeader: styled.header`
+    width: 100%;
+    display: none;
+    margin-bottom: 20px;
+
+    @media ${devices.tablet} {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    span {
+      color: ${colors.textLight};
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    div {
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    span:nth-child(2) {
+      margin-left: 70px;
     }
   `,
   FinishOrder: styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    
 
+    padding-top: 20px;
+    margin-top: auto;
+    border-top: 1px solid ${colors.borderDark};
+
+    @media ${devices.tablet} {
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media ${devices.desktop} {
+      margin-top: 20px;
+    }
+    
     div {
       display: flex;
       align-items: center;
@@ -46,6 +86,11 @@ export default {
       text-transform: uppercase;
       font-weight: 700;
       font-size: 14px;
+
+      @media ${devices.tablet} {
+        max-width: 235px;
+        margin: 0;
+      }
     }
   `
 }
