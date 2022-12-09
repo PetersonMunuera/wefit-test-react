@@ -70,12 +70,18 @@ export function CartProvider({ children }: CartProviderProps) {
     }
   }
 
+  function resetCart() {
+    setCart([])
+    localStorage.removeItem('@WeMovies:cart')
+  }
+
   return (
     <CartContext.Provider value={{
       cart,
       addProduct,
       removeProduct,
-      updateProductAmount
+      updateProductAmount,
+      resetCart
     }}>
       {children}
     </CartContext.Provider>

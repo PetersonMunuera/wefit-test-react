@@ -16,6 +16,7 @@ export function CartItems() {
             width={64}
             height={82}
             alt={product.title}
+            priority
           />
 
           <div>

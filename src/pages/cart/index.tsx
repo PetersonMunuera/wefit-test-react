@@ -6,13 +6,19 @@ import { FeedbackCard } from '~/components/FeedbackCard'
 import { CartItems } from '~/components/CartItems'
 
 import S from './style'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export default function Cart() {
-  const { cart } = useCart()
+  const { cart, resetCart } = useCart()
+  const router = useRouter()
 
   let totalPrice = 0
   cart.forEach(product => totalPrice += product.price * product.amount)
+
+  function handleFinishOrder() {
+    router.replace('/order')
+    resetCart()
+  }
 
   return (
     <>
@@ -37,9 +43,8 @@ export default function Cart() {
               <span>total</span>
               <strong>{format(totalPrice)}</strong>
             </div>
-            <Link href='/order'>
-              <button>finalizar pedido</button>
-            </Link>
+            <button onClick={handleFinishOrder}>finalizar pedido</button>
+
           </S.FinishOrder>
         </S.CartCard>
       )}
